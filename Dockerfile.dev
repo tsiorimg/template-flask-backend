@@ -4,7 +4,11 @@ FROM python:3.11-slim
 RUN apt-get update && apt-get install -y \
     gcc \
     libpq-dev \
-    iputils-ping
+    iputils-ping \
+    curl \
+    gcc \
+    g++ \
+    make
 
 WORKDIR /app
 
@@ -12,11 +16,15 @@ WORKDIR /app
 COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install gunicorn==20.1.0
+RUN pip install debugpy
 
 EXPOSE 5000
+EXPOSE 5678
 
 # Copier le reste des fichiers
 COPY . .
 
-CMD ["gunicorn", "-c", "gunicorn_config.py", "run:app"]
+ENV ENV_CONFIG=development
+
+# Lancer le serveur de développement Flask
+CMD ["python", "run.py"]

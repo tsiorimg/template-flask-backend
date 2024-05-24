@@ -6,15 +6,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-class DevelopmentConfig(Config):
-    DEBUG = True
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
 config_by_name = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig
+    'development': Config,
+    'production': Config
 }

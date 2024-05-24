@@ -4,4 +4,3 @@ Flask-SQLAlchemy==2.5.1
 psycopg2-binary==2.9.3
 Werkzeug==2.0.3  # Fixer la version de Werkzeug compatible avec Flask 2.0.2
 SQLAlchemy==1.3.24  # Fixer la version de SQLAlchemy compatible avec Flask-SQLAlchemy 2.5.1
-gunicorn==20.1.0
