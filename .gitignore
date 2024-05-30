@@ -115,3 +115,5 @@ dmypy.json
 
 # Pycharm project directory
 .idea/
+
+flask_session/
